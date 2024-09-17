@@ -1,0 +1,15 @@
+server:
+  port: 7070
+spring:
+  application:
+    name: "soaltestkerja"
+  datasource:
+    url: jdbc:postgresql://localhost:4080/perpustakaan
+    username: app
+    password: app
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect

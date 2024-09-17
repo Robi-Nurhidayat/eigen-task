@@ -1,0 +1,25 @@
+services:
+  postgres:
+    container_name: perpustakaan
+    image: postgres:16-alpine
+    restart: always
+    shm_size: 256mb
+    ports:
+      - "4080:5432"
+    environment:
+      - POSTGRES_PASSWORD=app
+      - POSTGRES_USER=app
+      - POSTGRES_DB=perpustakaan
+    volumes:
+      - perpustakaan:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+        reservations:
+          cpus: "0.2"
+          memory: 128M
+
+volumes:
+  perpustakaan:
