@@ -3,14 +3,17 @@ package com.task.soaltestkerja.service.impl;
 import ch.qos.logback.core.util.StringUtil;
 import com.task.soaltestkerja.dto.BookDto;
 import com.task.soaltestkerja.entity.Book;
+import com.task.soaltestkerja.entity.Borrow;
 import com.task.soaltestkerja.exception.ResourceAlreadyExistsException;
 import com.task.soaltestkerja.exception.ResourceNotFoundException;
 import com.task.soaltestkerja.repository.BookRepository;
+import com.task.soaltestkerja.repository.BorrowRepository;
 import com.task.soaltestkerja.service.IBookService;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -19,16 +22,31 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class BookServiceImpl implements IBookService {
 
+
     private final BookRepository bookRepository;
+    private final BorrowRepository borrowRepository;
 
     @Override
     public List<BookDto> getAllBook() {
 
         List<Book> books = bookRepository.findAll();
 
-        List<BookDto> bookDtos = books.stream().map(data -> new BookDto(data.getCode(),data.getTitle(),data.getAuthor(),data.getStock())).collect(Collectors.toList());
+        List<BookDto> filterBooks = new ArrayList<>();
+        for (var data: books) {
 
-        return bookDtos;
+            Optional<Borrow> byBookCode = borrowRepository.findByBookCode(data.getCode());
+            if (!byBookCode.isPresent()) {
+                filterBooks.add(new BookDto(data.getCode(),data.getTitle(),data.getAuthor(),data.getStock()));
+            }
+
+
+
+        }
+
+
+//        List<BookDto> bookDtos = books.stream().map(data -> new BookDto(data.getCode(),data.getTitle(),data.getAuthor(),data.getStock())).collect(Collectors.toList());
+
+        return filterBooks;
     }
 
     @Override
@@ -90,5 +108,16 @@ public class BookServiceImpl implements IBookService {
         );
 
         bookRepository.deleteById(code);
+    }
+
+    @Override
+    public void setupData() {
+
+        Book book1 = new Book("JK-45","Harry Potter","J.K Rowling",1);
+        Book book2 = new Book("SHR-1","A Study in Scarlet","Arthur Conan Doyle",1);
+        Book book3 = new Book("TW-11","Twilight","Stephenie Meyer",1);
+        Book book4 = new Book("HOB-83","The Hobbit, or There and Back Again","J.R.R. Tolkien",1);
+        Book book5 = new Book("NRN-7","The Lion, the Witch and the Wardrobe","C.S. Lewis",1);
+        bookRepository.saveAll(List.of(book1, book2, book3, book4, book5));
     }
 }

@@ -1,6 +1,7 @@
 package com.task.soaltestkerja.controller;
 
 import com.task.soaltestkerja.dto.BookDto;
+import com.task.soaltestkerja.dto.MemberBorrowCountDto;
 import com.task.soaltestkerja.dto.MemberDto;
 import com.task.soaltestkerja.dto.Response;
 import com.task.soaltestkerja.service.IMemberService;
@@ -20,7 +21,7 @@ public class MemberController {
 
     @GetMapping
     public ResponseEntity<Response> getAllBook() {
-        List<MemberDto> memberDtos = memberService.getAllMember();
+        List<MemberBorrowCountDto> memberDtos = memberService.getAllMember();
         return ResponseEntity.status(HttpStatus.OK).body(new Response("200", "successfully get all data", memberDtos));
 
     }
@@ -52,6 +53,13 @@ public class MemberController {
     public ResponseEntity<Response> update(@RequestParam("code") String code) {
         memberService.delete(code);
         return ResponseEntity.status(HttpStatus.OK).body(new Response("200", "successfully update data", ""));
+
+    }
+
+    @PostMapping("/setup")
+    public ResponseEntity<String> setup() {
+        memberService.setup();
+        return ResponseEntity.status(HttpStatus.OK).body("Success setup");
 
     }
 }

@@ -16,6 +16,8 @@ public interface IBookService {
 
     void delete(String code);
 
+    void setupData();
+
 
 
 }

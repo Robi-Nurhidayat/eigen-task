@@ -1,16 +1,14 @@
 package com.task.soaltestkerja.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "books")
-@Setter @Getter @AllArgsConstructor @NoArgsConstructor
+@Setter @Getter  @NoArgsConstructor
 public class Book {
 
     @Id
@@ -21,4 +19,14 @@ public class Book {
     private String author;
 
     private Integer stock;
+
+    @OneToMany(mappedBy = "book",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Borrow> borrows;
+
+    public Book(String code, String title, String author, Integer stock) {
+        this.code = code;
+        this.title = title;
+        this.author = author;
+        this.stock = stock;
+    }
 }

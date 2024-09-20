@@ -53,4 +53,12 @@ public class BookController {
         return ResponseEntity.status(HttpStatus.OK).body(new Response("200", "successfully update data", ""));
 
     }
+
+    @PostMapping("/setup")
+    public ResponseEntity<String> setup() {
+        bookService.setupData();
+        return ResponseEntity.status(HttpStatus.OK).body("setup success");
+
+    }
+
 }
