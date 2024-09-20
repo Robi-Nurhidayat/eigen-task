@@ -1,0 +1,467 @@
+{
+	"info": {
+		"_postman_id": "92cee264-fee8-4d92-9ce1-08f6d90a6d19",
+		"name": "task-test-kerja",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12370398"
+	},
+	"item": [
+		{
+			"name": "pt eigen",
+			"item": [
+				{
+					"name": "backend",
+					"item": [
+						{
+							"name": "book",
+							"item": [
+								{
+									"name": "get all book",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:7070/api/books",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"books"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "setup",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:7070/api/books/setup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"books",
+												"setup"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete book",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "http://localhost:7070/api/books/delete?code=CS-1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"books",
+												"delete"
+											],
+											"query": [
+												{
+													"key": "code",
+													"value": "CS-1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "find by code",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "http://localhost:7070/api/books/find?code=JK-45",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"books",
+												"find"
+											],
+											"query": [
+												{
+													"key": "code",
+													"value": "JK-45"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "create new book",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"code\": \"CS-1\",\n    \"title\": \"Kancil anak baik\",\n    \"author\": \"Robi Nurhidayat\",\n    \"stock\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:7070/api/books",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"books"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update book",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"code\": \"CS-1\",\n    \"title\": \"Kancil anak jahat\",\n    \"author\": \"Adi Saputra\",\n    \"stock\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:7070/api/books",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"books"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "member",
+							"item": [
+								{
+									"name": "get all member",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:7070/api/members",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"members"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "setup",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:7070/api/members/setup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"members",
+												"setup"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete member",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "http://localhost:7070/api/members/delete?code=CS-1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"members",
+												"delete"
+											],
+											"query": [
+												{
+													"key": "code",
+													"value": "CS-1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "find by code",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "http://localhost:7070/api/members/find?code=CS-1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"members",
+												"find"
+											],
+											"query": [
+												{
+													"key": "code",
+													"value": "CS-1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "create new member",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": " {\n        \"code\": \"M003\",\n        \"name\": \"Putri\"\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:7070/api/members",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"members"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update member",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"code\": \"CS-1\",\n    \"name\": \"Adi Saputra\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:7070/api/members",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"members"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "borrow",
+							"item": [
+								{
+									"name": "create borrow",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"memberCode\": \"M001\",\n    \"bookCode\": \"NRN-7\",\n    \"borrowDate\": \"20-09-2024\",\n    \"returnDate\": \"\",\n    \"memberReturnBookDate\":\"\",\n    \"isReturn\": 0\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:7070/api/borrow",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"borrow"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "return borrow",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"memberCode\": \"M001\",\n    \"bookCode\": \"HOB-83\",\n    \"borrowDate\": \"\",\n    \"returnDate\": \"\",\n    \"memberReturnBookDate\":\"26-09-2024\",\n    \"isReturn\": 0\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:7070/api/borrow/return",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"borrow",
+												"return"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get all borrow",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:7070/api/borrow",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"borrow"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "penalties",
+							"item": [
+								{
+									"name": "get all data penalties",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:7070/api/penalties",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "7070",
+											"path": [
+												"api",
+												"penalties"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
